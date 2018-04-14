@@ -1,0 +1,59 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">Sign Up</h1>
+        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="form-group">
+            <%= f.label :name, class: 'text-white' %><br />
+            <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, class: 'text-white' %><br />
+            <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :profile, class: 'text-white' %><br />
+            <%= f.text_field :profile, class: 'form-control', autofocus: true, autocomplete: "profile" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.file_field :image%>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-offset-3 col-md-3">
+                <label> <%= f.radio_button :buyer_flag, "true", id: 'buyer' %>発注者</label>
+                  <label style="display:none"> <%= f.radio_button :buyer_flag, "", {:checked => "checked"} %></label>
+                </div>
+                <div class="col-md-3">
+                  <label> <%= f.radio_button :seller_flag, "true", id: 'seller' %>購入者</label>
+                </div>
+            </div>
+            <h4>※どちらか一つのみを選択してください</h4>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: 'text-white' %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: 'text-white' %><br />
+            <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+
+          <%= f.submit "登録", class: 'btn-block btn-white' %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "users_roles", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.integer "user_id"
+  t.integer "role_id"
+  t.index ["role_id"], name: "index_users_roles_on_role_id", using: :btree
+  t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  t.index ["user_id"], name: "index_users_roles_on_user_id", using: :btree
+end

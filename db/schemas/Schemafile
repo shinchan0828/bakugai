@@ -1,0 +1,5 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'roles.schema'
+require 'users.schema'
+require 'users_roles.schema'
