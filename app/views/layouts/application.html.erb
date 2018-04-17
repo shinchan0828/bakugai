@@ -39,6 +39,33 @@
   </head>
 
   <body>
+      <% if user_signed_in && current_user.roles.name == "buyer" %>
+          <%= render 'layouts/navbar_buyer' %>
+      <% elsif user_signed_in && current_user.roles.name == "seller" %>
+          <%= render 'layouts/navbar_seller' %>
+      <% else %>
+        <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+            <div class="container">
+              <%= link_to root_path do %>
+                <span><%= image_tag 'icons/logo.png', class: 'navbar-brand' %></span>
+              <% end %>
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <%= link_to new_user_registration_path do %>
+                      <%= image_tag 'icons/register.png' %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to new_user_session_path do %>
+                      <%= image_tag 'icons/login.png' %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+       </nav>
+      <% end %>
+      
   <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
   <% end %>

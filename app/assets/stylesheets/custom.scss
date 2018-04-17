@@ -74,8 +74,8 @@ h1, h2 {
 
 .users-session-wrapper {
   width: 100vw;
-  height: auto;
-  // background-image: url('bg-top.png');
+  height: 100vh;
+  background-image: url('bg-top.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: relative;
@@ -89,4 +89,38 @@ h1, h2 {
       margin-bottom: 20px;
     }
   }
+}
+
+.users-mypage-wrapper {
+  padding-top: 40px;
+}
+
+.users-mypage-container {
+  padding-top: 40px;
+  width: 920px;
+  margin: auto;
+}
+
+.mypage-left {
+  width: 300px;
+  float: left;
+}
+
+.mypage-right {
+  margin-left: 20px;
+  width: 600px;
+  float: right;
+}
+
+.mypage-image {
+  width: 300px;
+}
+
+.btn-black {
+  color: #000000;
+  border: 1px solid #000000;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
 }

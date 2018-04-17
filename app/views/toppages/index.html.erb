@@ -1,5 +1,22 @@
+<% if user_signed_in? %>
+  <div class="users-mypage-wrapper">
+    <div class="users-mypage-container">
+        <div class="mypage-left">
+            <%= image_tag current_user.image, width: '300px' %>
+        </div>
+        <div class="mypage-right">
+            <h3>名前</h3><%= current_user.name %></br>
+            <h3>メールアドレス</h3><%= current_user.email %>
+            <h3>プロフィール</h3><%= current_user.profile %>
+            <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'btn btn-block btn-black' %>
+        </div>
+    </div>
+</div>
+
+<% else %>
 <div class="top-hero-wrapper text-center">
   <div class="container top-hero-container">
+
     <h1 class="text-white">Ask to Japanese</h1>
     <h2 class="text-white">Bakugai delivers authentic Japanese products to you.</h2>
     <div class="row">
@@ -7,8 +24,9 @@
         <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-block btn-white' %>
       </div>
       <div class="col-md-3">
-        <%= link_to 'Log in', new_user_session_path,class: 'btn btn-block btn-white' %>
+        <%= link_to 'Log in', new_user_session_path, class: 'btn btn-block btn-white' %>
       </div>
     </div>
   </div>
 </div>
+<% end %>

@@ -1,0 +1,24 @@
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+        <div class="container">
+          <%= link_to root_path do %>
+            <span><%= image_tag 'icons/logo.png', class: 'navbar-brand' %></span>
+          <% end %>
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                <%= link_to '#' do %>
+                  <%= image_tag 'icons/requests_index.png' %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <%= image_tag 'icons/request_status.png' %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#', method: :delete do %>
+                  <%= image_tag 'icons/logout.png' %>
+                <% end %>
+              </li>
+          </ul>
+        </div>
+     </nav>
