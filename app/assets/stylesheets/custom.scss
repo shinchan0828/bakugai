@@ -21,7 +21,7 @@ h1, h2 {
 
 .top-hero-wrapper {
   width: 100vw;
-  height: auto;
+  height: 100vh;
   // background-image: url('bg-top.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -66,10 +66,15 @@ h1, h2 {
 }
 
 .alert {
+  margin-top: 30px;
   margin-bottom: 0px;
   position: fixed;
   width: 100%;
   z-index: 10000;
+}
+
+.alert-notice {
+  color: #00F;  
 }
 
 .users-session-wrapper {
@@ -123,4 +128,40 @@ h1, h2 {
   padding-bottom: 15px;
   font-size: 20px;
   background-color: rgba(0,0,0,0.0);
+}
+
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  a {
+    color: #fff !important;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+
+  img {
+    height: 40px;
+  }
+}
+
+.request-new-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('bg-top.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-size: cover;
+  background-color: #464646;
+
+  .request-new-container {
+    padding-top: 150px;
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  }
 }

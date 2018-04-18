@@ -39,9 +39,15 @@
   </head>
 
   <body>
-      <% if user_signed_in && current_user.roles.name == "buyer" %>
+      <% if user_signed_in? %>
+      <%= current_user.roles.name if user_signed_in? %>
+      <%= current_user.buyer_flag? %>
+      <%= current_user.seller_flag? %>
+      <% end %>
+      
+      <% if user_signed_in? && current_user.roles.name == "buyer" %>
           <%= render 'layouts/navbar_buyer' %>
-      <% elsif user_signed_in && current_user.roles.name == "seller" %>
+      <% elsif user_signed_in? && current_user.roles.name == "seller" %>
           <%= render 'layouts/navbar_seller' %>
       <% else %>
         <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
@@ -60,7 +66,7 @@
                       <%= image_tag 'icons/login.png' %>
                     <% end %>
                   </li>
-                <% end %>
+                
               </ul>
             </div>
        </nav>

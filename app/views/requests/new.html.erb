@@ -1,0 +1,26 @@
+<div class="request-new-wrapper">
+    <div class="request-new-container">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <h2>リクエスト投稿</h2>
+                <%= form_for @request do |f| %>
+                <div class="form-group">
+                    <%= f.label :title, class: "text-white" %>
+                    <%= f.text_field :title, class: "form-conrol" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :budget, class: "text-white" %>
+                    <%= f.text_field :budget, class: "form-conrol" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :description, class: "text-white" %>
+                    <%= f.text_field :description, class: "form-conrol" %>
+                </div>
+                <div class="form-group">
+                    <%= f.submit "投稿", class: 'btn-block btn-white' %>
+                </div>    
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
