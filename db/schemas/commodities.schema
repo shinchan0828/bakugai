@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "commodities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.integer  "request_id"
+  t.string   "product_name"
+  t.integer  "price"
+  t.integer  "amount"
+  t.string   "image"
+  t.datetime "created_at",   null: false
+  t.datetime "updated_at",   null: false
+  t.index ["request_id"], name: "fk_rails_8383dfaa2d", using: :btree
+end
