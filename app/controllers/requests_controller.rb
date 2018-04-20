@@ -10,6 +10,7 @@ class RequestsController < ApplicationController
       redirect_to root_path, notice: '投稿に成功しました'
     else
       logger.debug('エラー内容は下記です')
+      logger.debug(@request.commodities.inspect)
       logger.debug(@request.errors.messages)
       flash.now[:alert] = "投稿に失敗しました"
       render :new
