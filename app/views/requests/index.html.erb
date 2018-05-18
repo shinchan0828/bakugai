@@ -1,0 +1,18 @@
+<div class="request-index-wrapper">
+    <div class="request-index-container">
+        <% @requests.each do |request| %>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-6">
+                    <div class="request-index-single">
+                        <h2 class="request-index-text">件名：<%= request.title %></h2>
+                        <h2 class="request-index-text">予算：<%= request.budget %></h2>
+                        <h2 class="request-index-text">詳細：<%= request.description %></h2>
+                    </div>
+                    <div class="col-md-2">
+                        <%= link_to "詳細を見る", request %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

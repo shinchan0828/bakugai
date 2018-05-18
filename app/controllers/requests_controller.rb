@@ -1,4 +1,13 @@
 class RequestsController < ApplicationController
+  
+  def index
+    @requests = Request.all
+  end
+  
+  def show
+    @request = Request.find(params[:id])
+  end
+  
   def new
     @request = Request.new
     @request.commodities.build
@@ -19,6 +28,6 @@ class RequestsController < ApplicationController
   
   private
   def request_params
-    params.require(:request).permit(:title, :budget, :description, commodities_attributes: [:product_name, :amount, :price, :image],)
+    params.require(:request).permit(:title, :budget, :description, commodities_attributes: [:id, :product_name, :amount, :price, :image],)
   end
 end

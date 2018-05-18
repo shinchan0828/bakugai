@@ -165,3 +165,18 @@ h1, h2 {
     }
   }
 }
+
+.request-index-wrapper {
+  padding-top: 70px;
+  background-color: #fafafa;
+
+  .request-index-single {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+
+  }
+}

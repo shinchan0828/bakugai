@@ -1,0 +1,17 @@
+<div class="request-show-wrapper">
+    <div class="request-show-container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <%= @request.title %>
+                <%= @request.budget %>
+                <%= @request.description %>
+                
+                <% @request.commodities.each do |commodity| %>
+                <%= commodity.product_name %>
+                <%= image_tag commodity.image.url %>
+                <% end %>
+                <%= link_to 'メッセージを投稿者に送る', new_message_path(request_id: @request.id) %>
+            </div>
+        </div>
+    </div>
+</div>
