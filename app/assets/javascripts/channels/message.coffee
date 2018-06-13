@@ -12,7 +12,7 @@ App.message = App.cable.subscriptions.create "MessageChannel",
   speak: (message) ->
     @perform 'speak', message: message
     
-    $(document).on 'keypress', '[data-behavior~=message_speaker]', (event) ->
+$(document).on 'keypress', '[data-behavior~=message_speaker]', (event) ->
   if event.keyCode is 13 # return = send
     App.message.speak event.target.value
     event.target.value = ''
