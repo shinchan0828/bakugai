@@ -1,24 +1,3 @@
-class RequestStateMachine
-    include Statesman::Machine
-    
-        state :raised, initial: true
-        state :accepted
-        state :purchased
-        state :sent
-        state :received
-        state :remitted
-        state :enquete
-        
-
-        transition from: :raised, to: :accepted
-        transition from: :accepted, to: :purchased
-        transition from: :purchased, to: :sent
-        transition from: :sent, to: :received
-        transition from: :received, to: :remitted
-        transition from: :remitted, to: :enquete
-    
-end
-
 class Request < ApplicationRecord
     include Statesman::Adapters::ActiveRecordQueries
     
@@ -45,12 +24,19 @@ class Request < ApplicationRecord
   def self.initial_state
     :raised
   end
+
+  has_many :transitions, class_name: "RequestTransition", autosave: false
+
+  # Initialize the state machine
+  def state_machine
+    @state_machine ||= RequestStateMachine.new(self, transition_class: RequestTransition,
+                                                   association_name: :transitions)
+  end
+
+  # Optionally delegate some methods
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
+           to: :state_machine 
  
   private_class_method :initial_state
-
-  class RequestTransition < ActiveRecord::Base
-   include Statesman::Adapters::ActiveRecordTransition
-
-   belongs_to :request, inverse_of: :request_transitions
-  end    
 end
+
