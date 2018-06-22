@@ -15,7 +15,6 @@ class RequestStateMachine
         transition from: :sent, to: :received
         transition from: :received, to: :remitted
         transition from: :remitted, to: :enquete
-    
 end
 
   
